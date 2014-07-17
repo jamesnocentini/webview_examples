@@ -1,0 +1,59 @@
+body { overflow-x:hidden; background:#FF0066
+; }
+span {
+    position:relative;
+    width:100%; height: 0;
+    padding-bottom: 100%;
+    display:block;
+}
+div {
+    position:absolute;
+    top:50%;
+    left:50%;
+    -moz-animation: top 1s linear infinite;
+    -webkit-animation: top 1s linear infinite;
+}
+div:before, div:after {
+    content:'';
+    width:100%; height:100%;
+    position:absolute;
+    background:#C51C2F;
+}
+div:before {
+background:#00FF7F;
+    -moz-animation:middle 1s linear infinite;
+    -webkit-animation:middle 1s linear infinite;
+}
+div:after {
+    /* Top of layer */
+    -moz-transform:rotate(30deg);
+    -webkit-transform:rotate(30deg);
+}
+div:nth-of-type(4):after {
+    -moz-animation: keepStill 1s linear infinite;
+    -webkit-animation: keepStill 1s linear infinite;
+}
+
+div:nth-of-type(4) { /* Topmost level */ width:30%; height:30%; margin-top:-15%; margin-left:-15%; }
+div:nth-of-type(3) { width:50%; height:50%; margin-top:-25%; margin-left:-25%; }
+div:nth-of-type(2) { width:70%; height:70%; margin-top:-35%; margin-left:-35%; }
+div:nth-of-type(1) { width:100%; height:100%; margin-top:-50%; margin-left:-50%; }
+
+/* Animations */
+@-webkit-keyframes top { from { -webkit-transform:rotate(60deg); } to { -webkit-transform:rotate(150deg); } }
+@-webkit-keyframes middle { from { -webkit-transform:rotate( -30deg); } to { -webkit-transform:rotate(-210deg); } }
+@-webkit-keyframes keepStill { from { -webkit-transform:rotate(30deg); } to { -webkit-transform:rotate(-60deg); } }
+
+@-moz-keyframes top { from { -webkit-transform:rotate(60deg); } to { -webkit-transform:rotate(150deg); } }
+@-moz-keyframes middle { from { -webkit-transform:rotate( -30deg); } to { -webkit-transform:rotate(-210deg); } }
+@-moz-keyframes keepStill { from { -webkit-transform:rotate(30deg); } to { -webkit-transform:rotate(-60deg); } }
+
+@keyframes top { from { transform:rotate(60deg); } to { transform:rotate(150deg); } }
+@keyframes middle { from { transform:rotate( -30deg); } to { transform:rotate(-210deg); } }
+@keyframes keepStill { from { transform:rotate(30deg); } to { transform:rotate(-60deg); } }
+
+/* Coloring */
+div:nth-of-type(4), div:nth-of-type(3):before, div:nth-of-type(2), div:nth-of-type(1):before { background:#823371; }
+div:nth-of-type(4):after, div:nth-of-type(1), div:nth-of-type(3) { background:#FF0066; }
+div:nth-of-type(2):after { background:#00B7FF; }
+div:nth-of-type(3):after, div:nth-of-type(1):after { background:#FFC200; }
